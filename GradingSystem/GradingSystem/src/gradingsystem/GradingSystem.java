@@ -448,7 +448,8 @@ public class GradingSystem
         System.out.println(callObject.get(49));
         System.out.println(callObject.get(68));
 
-        // THE LOOP (QUIZ INPUT)
+        //This while loop is used to set a limit to the user input. The user cannot input negative number but also cannot exceed to 100.
+        //This is the input for Quizzes.
         while(true)
         {
             System.out.print(callObject.get(50));
@@ -470,7 +471,7 @@ public class GradingSystem
             if(q3 >=0 && q3<=100){break;}
             else{System.out.println(callObject.get(69));}
         }
-        //Minor Scores Input
+        //This is the input for minor scores.
         while(true)
         {
             System.out.print(callObject.get(53));
@@ -492,7 +493,7 @@ public class GradingSystem
             if(sw >=0 && sw<=100){break;}
             else{System.out.println(callObject.get(69));}
         }
-        //Major Scores Input
+        //This is the input for Major scores AKA "Performance task and Exam".
         while(true)
         {
             System.out.print(callObject.get(56));
@@ -509,14 +510,16 @@ public class GradingSystem
         }
 
         //Alternative Computation
+        //This is the process for computing the grades. The Raw score will be converted into percentage.
         qGrade       = (q1+q2+q3)/3*0.3;
         schGrade     = (hw+ac+sw)/3*0.05;
         ptGrade      = pt/100*50;
         exGrade      = ex/100*15;
         finalsGrade  = qGrade+schGrade+ptGrade+exGrade;
+        //The total grade will be added into new Arraylist.
         storeGrade.add(finalsGrade);
 
-        //Display
+        //This will display the result of percentages.
         System.out.println(callObject.get(58));
         System.out.printf(callObject.get(59), qGrade);
         System.out.printf(callObject.get(60), schGrade);
@@ -525,10 +528,10 @@ public class GradingSystem
         System.out.printf(callObject.get(66), finalsGrade);
         System.out.println("\n" + callObject.get(67));
 
-        //Next
+        //After the result of grade. It will go to the next method.
         semesterGrade();
     }
-
+    //This method is the calculation of overall grades.
     public void semesterGrade()
     {
         ArrayList<String> info = new ArrayList<>();
