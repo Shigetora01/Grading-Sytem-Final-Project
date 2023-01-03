@@ -1,4 +1,4 @@
-package GradingSystem;
+package gradingsystem;
 
 import static gradingsystem.ArrayListStorage.Storage;
 import java.util.ArrayList;
@@ -23,9 +23,10 @@ public class GradingSystem
     {
         //The Program Starts Here...
         GradingSystem START=new GradingSystem();
-        START.userlogin();
+        START.ProgramStart();
     }
-    
+
+    //The user will input the useraneme and the password and this method will determine if the input is admin account or user account
     public void userlogin()
     {
         ArrayList<String> accounts = new ArrayList<>();
@@ -36,18 +37,19 @@ public class GradingSystem
             String user = Write2.nextLine();
             System.out.print("Password: ");
             String pass = Write2.nextLine();
-
+            //If the account is an admin account, the system will redirect to the AdminInput method and Confirm the name and id of the admin. "Line 82"
             if ( user.equals(accounts.get(71)) && pass.equals(accounts.get(72))) 
             {
                 System.out.println(" ");
                 AdminInput();
                 break;
-            } 
+            }
+            //If the user input is a Teacher's account. The system will direct to the ProgramStart method. "Line62"
             else if (user.equals(accounts.get(75)) && pass.equals(accounts.get(76)) ||
                      user.equals(accounts.get(77)) && pass.equals(accounts.get(78)))
             {
                 System.out.println(" ");
-                ProgramStart();
+                UserInput();
                 break;
             }
             else
@@ -56,7 +58,7 @@ public class GradingSystem
             }
         }
     }
-
+    //The system will require you to press the enter button in order to redirect in UserInput method. "Line 106"
     public void ProgramStart()
     {
         ArrayList<String> callObject=new ArrayList<>();
@@ -73,18 +75,16 @@ public class GradingSystem
             }
             else
             {
-                UserInput(); break;
+                userlogin(); break;
             }
         }
     }
-
+    //Here, the system will confirm the name and id of user input to determine if the user is an admin.
     public void AdminInput()
     {
         ArrayList<String> info=new ArrayList<>();
         Storage(info);
-        
         System.out.println("=====WELCOME=====");
-        
         while(true)
         {
             System.out.print("Admin Name  : ");
@@ -102,7 +102,7 @@ public class GradingSystem
             }
         }
     }
-    
+    //If the User input is a Teacher's account
     public void UserInput()
     {
         //Call Array from another method
@@ -113,7 +113,7 @@ public class GradingSystem
         System.out.println(callObject.get(67));
         System.out.println(callObject.get(2));
 
-        //While loop for Student Name and LRN Input
+        //The Teacher will input the name and the Student ID.
         while(true)
         {
             System.out.print(callObject.get(3));
@@ -143,6 +143,7 @@ public class GradingSystem
                     stdscan.equals(callObject.get(44)) && lrnscan.equals(callObject.get(45))
                 )
             {
+                //If the name and LRN is the same as stored in Array List then it will be stored in another Arraylist and redirect to method Prelim.
                 nameOfStd.add(stdscan);
                 lrnOfStd.add(lrnscan);
                 prelim(); break;
@@ -154,18 +155,19 @@ public class GradingSystem
             }
         }
     }
-
+    //This method is the start of Inputting raw score of the student.
     public void prelim()
     {
         //This where the prelim grade should be stored.
         ArrayList <String> callObject=new ArrayList<>();
         Storage(callObject);
 
-        //Intro
+        //Calling the introduction of method.
         System.out.println(callObject.get(46));
         System.out.println(callObject.get(68));
 
-        //WHILE LOOP (QUIZ INPUT)
+        //This while loop is used to set a limit to the user input. The user cannot input negative number but also cannot exceed to 100.
+        //This is the input for Quizzes.
         while(true)
         {
             System.out.print(callObject.get(50));
@@ -187,7 +189,7 @@ public class GradingSystem
             if(q3 >=0 && q3<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Minor Scores Input
+        //This is the input for minor scores.
         while(true)
         {
             System.out.print(callObject.get(53));
@@ -209,7 +211,7 @@ public class GradingSystem
             if(sw >=0 && sw<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Major Scores Input
+        //This is the input for Major scores AKA "Performance task and Exam".
         while(true)
         {
             System.out.print(callObject.get(56));
@@ -225,15 +227,16 @@ public class GradingSystem
             else {System.out.println(callObject.get(69));}
         }
 
-        //Alternative Computation
+        //This is the process for computing the grades. The Raw score will be converted into percentage.
         qGrade       = (q1+q2+q3)/3*0.3;
         schGrade     = (hw+ac+sw)/3*0.05;
         ptGrade      = pt/100*50;
         exGrade      = ex/100*15;
         prelimGrade = qGrade+schGrade+ptGrade+exGrade;
+        //The total grade will be added into new Arraylist.
         storeGrade.add(prelimGrade);
 
-        //Display
+        //This will display the result of percentages.
         System.out.println(callObject.get(58));
         System.out.printf(callObject.get(59), qGrade);
         System.out.printf(callObject.get(60), schGrade);
@@ -243,7 +246,7 @@ public class GradingSystem
         System.out.printf(callObject.get(63), prelimGrade);
         System.out.println(callObject.get(70));
 
-        //Next
+        //After the result of grade. It will go to the next method.
         midterm();
     }
 
@@ -257,7 +260,8 @@ public class GradingSystem
         System.out.println(callObject.get(47));
         System.out.println(callObject.get(68));
 
-        //WHILE LOOP (QUIZ INPUT)
+        //This while loop is used to set a limit to the user input. The user cannot input negative number but also cannot exceed to 100.
+        //This is the input for Quizzes.
         while(true)
         {
             System.out.print(callObject.get(50));
@@ -279,7 +283,7 @@ public class GradingSystem
             if(q3 >=0 && q3<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Minor Scores Input
+        //This is the input for minor scores.
         while(true)
         {
             System.out.print(callObject.get(53));
@@ -301,7 +305,7 @@ public class GradingSystem
             if(sw >=0 && sw<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Major Scores Input
+        //This is the input for Major scores AKA "Performance task and Exam".
         while(true)
         {
             System.out.print(callObject.get(56));
@@ -318,14 +322,16 @@ public class GradingSystem
         }
 
         //Alternative Computation
+        //This is the process for computing the grades. The Raw score will be converted into percentage.
         qGrade       = (q1+q2+q3)/3*0.3;
         schGrade     = (hw+ac+sw)/3*0.05;
         ptGrade      = pt/100*50;
         exGrade      = ex/100*15;
         midtermGrade = qGrade+schGrade+ptGrade+exGrade;
+        //The total grade will be added into new Arraylist.
         storeGrade.add(midtermGrade);
-        
-        //Display
+
+        //This will display the result of percentages.
         System.out.println(callObject.get(58));
         System.out.printf(callObject.get(59), qGrade);
         System.out.printf(callObject.get(60), schGrade);
@@ -334,7 +340,7 @@ public class GradingSystem
         System.out.printf(callObject.get(64), midtermGrade);
         System.out.println(callObject.get(70));
 
-        //Next
+        //After the result of grade. It will go to the next method.
         prefinals();
     }
 
@@ -348,7 +354,8 @@ public class GradingSystem
         System.out.println(callObject.get(48));
         System.out.println(callObject.get(68));
 
-        //WHILE LOOP (QUIZ INPUT)
+        //This while loop is used to set a limit to the user input. The user cannot input negative number but also cannot exceed to 100.
+        //This is the input for Quizzes.
         while(true)
         {
             System.out.print(callObject.get(50));
@@ -370,7 +377,7 @@ public class GradingSystem
             if(q3 >=0 && q3<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Minor Scores Input
+        //This is the input for minor scores.
         while(true)
         {
             System.out.print(callObject.get(53));
@@ -392,7 +399,7 @@ public class GradingSystem
             if(sw >=0 && sw<=100) {break;}
             else {System.out.println(callObject.get(69));}
         }
-        //Major Scores Input
+        //This is the input for Major scores AKA "Performance task and Exam".
         while(true)
         {
             System.out.print(callObject.get(56));
@@ -409,14 +416,16 @@ public class GradingSystem
         }
 
         //Alternative Computation
+        //This is the process for computing the grades. The Raw score will be converted into percentage.
         qGrade         = (q1+q2+q3)/3*0.3;
         schGrade       = (hw+ac+sw)/3*0.05;
         ptGrade        = pt/100*50;
         exGrade        = ex/100*15;
         prefinalsGrade = qGrade+schGrade+ptGrade+exGrade;
+        //The total grade will be added into new Arraylist.
         storeGrade.add(prefinalsGrade);
-        
-        //Display
+
+        //This will display the result of percentages.
         System.out.println(callObject.get(58));
         System.out.printf(callObject.get(59), qGrade);
         System.out.printf(callObject.get(60), schGrade);
@@ -425,7 +434,7 @@ public class GradingSystem
         System.out.printf(callObject.get(65), prefinalsGrade);
         System.out.println(callObject.get(70));
 
-        //Next
+        //After the result of grade. It will go to the next method.
         finals();
     }
 
@@ -878,6 +887,12 @@ public class GradingSystem
         Storage(info);
 
         System.out.println("=====================================");
+
+        if (nameOfStd.isEmpty())
+        {
+            System.out.println("No Stored Grades");
+        }
+
         for (String storedstd : nameOfStd) 
         { System.out.println(storedstd); }
         
