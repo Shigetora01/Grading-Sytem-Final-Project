@@ -2,9 +2,9 @@ package gradingsystem;
 
 import java.util.ArrayList;
 
-public class ArrayListStorage 
+public class ArrayListStorage
 {
-   public static void Storage(ArrayList <String> Storage)
+    public static void Storage(ArrayList <String> Storage)
     {
         //ARRAY STORAGE FOR ProgramStart()                           //Index.
         Storage.add("===WELCOME TO STI MEYCAUAYAN===");               //0
@@ -64,20 +64,32 @@ public class ArrayListStorage
         Storage.add("\nMidterm              : %.2f");                 //64
         Storage.add("\nPre-Finals           : %.2f");                 //65
         Storage.add("\nFinals               : %.2f");                 //66
-                   
+
         //ARRAY STORAGE FOR OTHERS
         Storage.add("____________________________");                  //67
         Storage.add("====Enter your Score====");                      //68
-        Storage.add("Number is over the total score\n");              //69
+        Storage.add("\tNumber is either negative or over the Total Score. Try Again");   //69
         Storage.add(" ");                                             //70
-        
+
         //ARRAY STORAGE FOR USER ACCOUNT
         //Admin
-        Storage.add("admin@sti.com");      Storage.add("111345");      //71-72
-        Storage.add("Paul Arevalo");       Storage.add("888321");      //73-74
+        Storage.add("admin");              Storage.add("admin123");      //71-72
+        Storage.add("Paul Arevalo");       Storage.add("123456");        //73-74
         //User
         Storage.add("Rose Ann Tecson");    Storage.add("111678");      //75-76
         Storage.add("Paul Arevalo");       Storage.add("777321");      //77-78
-        
+
+        //ARRAY STORAGE FOR REMARK
+        Storage.add("1.00 Excellent");                                 //79
+        Storage.add("1.25 Very Good");                                 //80
+        Storage.add("1.50 Very Good");                                 //81
+        Storage.add("1.75 Very Good");                                 //82
+        Storage.add("2.00 Satisfactory");                              //83
+        Storage.add("2.25 Satisfactory");                              //84
+        Storage.add("2.50 Satisfactory");                              //85
+        Storage.add("2.75 Fair");                                      //86
+        Storage.add("3.00 Fair");                                      //87
+        Storage.add("Failed");                                         //88
+        Storage.add("\nRemark               : %.2f - %s");             //89
     }
 }
