@@ -124,7 +124,7 @@ public class GradingSystem
         {
             case 1:
                 Write.nextLine();
-                TeacherInputGrade();
+                TeacherInputStudentInfo();
                 break;
             case 2:
                 DisplayStoredGrade();
@@ -255,7 +255,7 @@ public class GradingSystem
     }
 
     //This is the method where the teacher input the Student's Information and Grades
-    public void TeacherInputGrade()
+    public void TeacherInputStudentInfo()
     {
         //This new ArrayList is used to call the Arraylist in the new java class
         ArrayList<String> Display=new ArrayList<>();
@@ -275,7 +275,8 @@ public class GradingSystem
             System.out.print("Student LRN          : ");
             lrnscan=Write.nextLine();
 
-            if (StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan))
+            if (StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan) ||
+                NewStudentName.contains(stdscan) && NewStudentPass.contains(lrnscan))
             {
                 //If the name and LRN is the same as stored in Array List then it will be stored in another Arraylist and redirect to method Prelim. "Line 182"
                 nameOfStd.add(stdscan);
@@ -937,6 +938,7 @@ public class GradingSystem
             lrnConfirm = Write.nextLine();
             if (lrnConfirm.equals(lrnscan))
             {
+                System.out.println("Student Graded!");
                 System.out.printf(Display.get(11),stdscan,lrnscan,prelimGrade,midtermGrade,prefinalsGrade,finalsGrade);
                 System.out.print("\nRemark               : ");
 
@@ -990,7 +992,6 @@ public class GradingSystem
                 System.out.println("Invalid LRN! Try again.");
             }
         }
-        System.out.println("Student Graded!");
         //After the result of Semester Grade. It will go to the next method
         TeacherSelection();
     }
@@ -1065,12 +1066,11 @@ public class GradingSystem
     //This method is for creating a new teacher for Log-in
     public void CreateTeacher()
     {
-        //This new ArrayList is used to call the Arraylist in the new java class
         System.out.println("\nEnter Teacher's Username and Password");
         System.out.print("Username: ");
         String newuser = Write.nextLine();
         NewTeacherUser.add(newuser);
-
+        
         System.out.print("Password: ");
         String newpass = Write.nextLine();
         NewTeacherPass.add(newpass);
@@ -1078,21 +1078,20 @@ public class GradingSystem
         System.out.println("Teacher Account Created!");
         AdminSelection();
     }
-
+    
     //This method is for adding a new student for Log-in
     public void CreateStudent()
     {
-        //This new ArrayList is used to call the Arraylist in the new java class
         System.out.println("\nEnter Student Name and LRN");
-        System.out.print("Username: ");
+        System.out.print("Student Name: ");
         String newname = Write.nextLine();
         NewStudentName.add(newname);
-
-        System.out.print("Password: ");
-        String newid = Write.nextLine();
-        NewStudentPass.add(newid);
-
-        System.out.println("Teacher Account Created!");
+        
+        System.out.print("Student LRN: ");
+        String newID = Write.nextLine();
+        NewStudentPass.add(newID);
+        
+        System.out.println("Student Added!");
         AdminSelection();
     }
 }
