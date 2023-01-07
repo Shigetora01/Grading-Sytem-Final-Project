@@ -990,12 +990,12 @@ public class GradingSystem
                 System.out.println("Invalid LRN! Try again.");
             }
         }
-        System.out.println("Student Graded!");
+        System.out.println("\nStudent Graded!\n\n");
         //After the result of Semester Grade. It will go to the next method
         TeacherSelection();
     }
 
-    //Here, the system will confirm the code of user input to to determine if the user is an admin.
+    //Here, the system will confirm the code of user input to determine if the user is an admin.
     public void AdminInput()
     {
         //This new ArrayList is used to call the Arraylist from the other java class
