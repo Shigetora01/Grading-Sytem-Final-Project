@@ -61,7 +61,7 @@ public class GradingSystem
         }
     }
 
-    //The user will input the useraneme and the password and this method will determine if the input is admin account or user account
+    //The user will input the username and the password and this method will determine if the input is admin account or user account
     public void userlogin()
     {
         //This new ArrayList is used to call the Arraylist from the other java class
@@ -124,7 +124,7 @@ public class GradingSystem
         {
             case 1:
                 Write.nextLine();
-                TeacherInputGrade();
+                TeacherInputStudentInfo();
                 break;
             case 2:
                 DisplayStoredGrade();
@@ -154,16 +154,20 @@ public class GradingSystem
         {
             System.out.println("No Stored Grades");
         }
-        //This is for each index of nameOfStudent it will print the ArrayList using the variable storedstd.
-        //It uses lambda expression "->"
-        nameOfStd.forEach((storedstd) -> {System.out.println(storedstd);});
+        else
+        {
+            for (String storedstd : nameOfStd)
+            {
+                System.out.println(storedstd);
+            }
+        }
 
         System.out.print("Select Stored Grades from the index: "
                 + "\n[0] Go back to Selection"
                 + "\n: ");
         std = Write.nextInt();
 
-        //Try catch to prevent Exeptional Error.
+        //Try catch to prevent Exceptional Error.
         try
         {
             //Call names for selection of student.
@@ -176,70 +180,70 @@ public class GradingSystem
                     System.out.printf(Display.get(22),nameOfStd.get(0),lrnOfStd.get(0)
                             ,storeGrade.get(0),storeGrade.get(1),storeGrade.get(2),storeGrade.get(3)
                             ,storeSemGrade.get(0), storeRemark.get(0));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 2:
                     System.out.printf(Display.get(22),nameOfStd.get(1),lrnOfStd.get(1)
                             ,storeGrade.get(4),storeGrade.get(5),storeGrade.get(6),storeGrade.get(7)
                             ,storeSemGrade.get(1), storeRemark.get(1));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 3:
                     System.out.printf(Display.get(22),nameOfStd.get(2),lrnOfStd.get(2)
                             ,storeGrade.get(8),storeGrade.get(9),storeGrade.get(10),storeGrade.get(11)
                             ,storeSemGrade.get(2), storeRemark.get(2));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 4:
                     System.out.printf(Display.get(22),nameOfStd.get(3),lrnOfStd.get(3)
                             ,storeGrade.get(12),storeGrade.get(13),storeGrade.get(14),storeGrade.get(15)
                             ,storeSemGrade.get(3), storeRemark.get(3));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 5:
                     System.out.printf(Display.get(22),nameOfStd.get(4),lrnOfStd.get(4)
                             ,storeGrade.get(16),storeGrade.get(17),storeGrade.get(18),storeGrade.get(19)
                             ,storeSemGrade.get(4), storeRemark.get(4));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 6:
                     System.out.printf(Display.get(22),nameOfStd.get(5),lrnOfStd.get(5)
                             ,storeGrade.get(20),storeGrade.get(21),storeGrade.get(22),storeGrade.get(23)
                             ,storeSemGrade.get(5), storeRemark.get(5));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 7:
                     System.out.printf(Display.get(22),nameOfStd.get(6),lrnOfStd.get(6)
                             ,storeGrade.get(24),storeGrade.get(25),storeGrade.get(26),storeGrade.get(27)
                             ,storeSemGrade.get(6), storeRemark.get(6));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 8:
                     System.out.printf(Display.get(22),nameOfStd.get(7),lrnOfStd.get(7)
                             ,storeGrade.get(28),storeGrade.get(29),storeGrade.get(30),storeGrade.get(31)
                             ,storeSemGrade.get(7), storeRemark.get(7));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 9:
                     System.out.printf(Display.get(22),nameOfStd.get(8),lrnOfStd.get(8)
                             ,storeGrade.get(32),storeGrade.get(33),storeGrade.get(34),storeGrade.get(35)
                             ,storeSemGrade.get(8), storeRemark.get(8));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 case 10:
                     System.out.printf(Display.get(22),nameOfStd.get(9),lrnOfStd.get(9)
                             ,storeGrade.get(36),storeGrade.get(37),storeGrade.get(38),storeGrade.get(39)
                             ,storeSemGrade.get(9), storeRemark.get(9));
-                    System.out.println("");
+                    System.out.println();
                     DisplayStoredGrade();
                     break;
                 default:
@@ -255,7 +259,7 @@ public class GradingSystem
     }
 
     //This is the method where the teacher input the Student's Information and Grades
-    public void TeacherInputGrade()
+    public void TeacherInputStudentInfo()
     {
         //This new ArrayList is used to call the Arraylist in the new java class
         ArrayList<String> Display=new ArrayList<>();
@@ -275,7 +279,8 @@ public class GradingSystem
             System.out.print("Student LRN          : ");
             lrnscan=Write.nextLine();
 
-            if (StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan))
+            if (StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan) ||
+                    NewStudentName.contains(stdscan) && NewStudentPass.contains(lrnscan))
             {
                 //If the name and LRN is the same as stored in Array List then it will be stored in another Arraylist and redirect to method Prelim. "Line 182"
                 nameOfStd.add(stdscan);
@@ -306,7 +311,7 @@ public class GradingSystem
         //This is the input for Quizzes.
         while(true)
         {
-            //This will try to catch non numeric value and loop back to enter another input.
+            //This will try to catch non-numeric value and loop back to enter another input.
             try
             {
                 System.out.print(Display.get(0));
@@ -461,7 +466,7 @@ public class GradingSystem
         //This is the input for Quizzes.
         while(true)
         {
-            //This will try to catch non numeric value and loop back to enter another input.
+            //This will try to catch non-numeric value and loop back to enter another input.
             try
             {
                 System.out.print(Display.get(0));
@@ -616,7 +621,7 @@ public class GradingSystem
         //This is the input for Quizzes.
         while(true)
         {
-            //This will try to catch non numeric value and loop back to enter another input.
+            //This will try to catch non-numeric value and loop back to enter another input.
             try
             {
                 System.out.print(Display.get(0));
@@ -771,7 +776,7 @@ public class GradingSystem
         //This is the input for Quizzes.
         while(true)
         {
-            //This will try to catch non numeric value and loop back to enter another input.
+            //This will try to catch non-numeric value and loop back to enter another input.
             try
             {
                 System.out.print(Display.get(0));
@@ -907,7 +912,7 @@ public class GradingSystem
         //This will display the result of percentages.
         System.out.printf(Display.get(10),qGrade,schGrade,ptGrade,exGrade);
         System.out.printf("\nFinals               : %.2f",finalsGrade);
-        System.out.println("");
+        System.out.println();
 
         //After the result of grade. It will go to the next method. "Line 824"
         semesterGrade();
@@ -920,7 +925,7 @@ public class GradingSystem
         ArrayList<String> Display = new ArrayList<>();
         Storage(Display);
 
-        //This is the process for computating the Semester Grade. It will be converted into percentage then adding them all to get the semGrade
+        //This is the process for computing the Semester Grade. It will be converted into percentage then adding them all to get the semGrade
         term1 = prelimGrade*.2;
         term2 = midtermGrade*.2;
         term3 = prefinalsGrade*.2;
@@ -937,6 +942,7 @@ public class GradingSystem
             lrnConfirm = Write.nextLine();
             if (lrnConfirm.equals(lrnscan))
             {
+                System.out.println("Student Graded!");
                 System.out.printf(Display.get(11),stdscan,lrnscan,prelimGrade,midtermGrade,prefinalsGrade,finalsGrade);
                 System.out.print("\nRemark               : ");
 
@@ -990,7 +996,6 @@ public class GradingSystem
                 System.out.println("Invalid LRN! Try again.");
             }
         }
-        System.out.println("\nStudent Graded!\n\n");
         //After the result of Semester Grade. It will go to the next method
         TeacherSelection();
     }
@@ -1004,6 +1009,7 @@ public class GradingSystem
 
         //This is the introduction of the Method
         System.out.println("============================");
+        System.out.println("You have entered an admin account!");
         System.out.println("Enter Admin Code");
 
         //This is where the admin input the name and id
@@ -1051,7 +1057,7 @@ public class GradingSystem
                 break;
             case 3:
                 Write.nextLine();
-                System.out.println("");
+                System.out.println();
                 userlogin();
                 break;
             case 4:
@@ -1065,7 +1071,6 @@ public class GradingSystem
     //This method is for creating a new teacher for Log-in
     public void CreateTeacher()
     {
-        //This new ArrayList is used to call the Arraylist in the new java class
         System.out.println("\nEnter Teacher's Username and Password");
         System.out.print("Username: ");
         String newuser = Write.nextLine();
@@ -1082,17 +1087,16 @@ public class GradingSystem
     //This method is for adding a new student for Log-in
     public void CreateStudent()
     {
-        //This new ArrayList is used to call the Arraylist in the new java class
         System.out.println("\nEnter Student Name and LRN");
-        System.out.print("Username: ");
+        System.out.print("Student Name: ");
         String newname = Write.nextLine();
         NewStudentName.add(newname);
 
-        System.out.print("Password: ");
-        String newid = Write.nextLine();
-        NewStudentPass.add(newid);
+        System.out.print("Student LRN: ");
+        String newID = Write.nextLine();
+        NewStudentPass.add(newID);
 
-        System.out.println("Teacher Account Created!");
+        System.out.println("Student Added!");
         AdminSelection();
     }
 }

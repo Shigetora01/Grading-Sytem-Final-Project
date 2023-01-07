@@ -76,6 +76,5 @@ public class ArrayListStorage
     {
         //Arraylist For Admin's Information
         Admin.add("admin");              Admin.add("admin123");      //0-1
-        Admin.add("name");               Admin.add("name123");       //2-3
     }
 }
