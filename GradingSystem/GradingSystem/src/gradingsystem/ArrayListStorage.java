@@ -71,10 +71,4 @@ public class ArrayListStorage
         Teacher.add("Paul Arevalo");            Teacher.add("paul123"); //0-1
         Teacher.add("Rose Ann Tecson");         Teacher.add("rose123"); //2-3
     }
-
-    public static void Admin(ArrayList <String> Admin)
-    {
-        //Arraylist For Admin's Information
-        Admin.add("admin");              Admin.add("admin123");      //0-1
-    }
 }

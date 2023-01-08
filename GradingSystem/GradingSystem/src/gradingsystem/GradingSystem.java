@@ -1,14 +1,11 @@
 package gradingsystem;
 
-import static gradingsystem.ArrayListStorage.Admin;
-import static gradingsystem.ArrayListStorage.Storage;
-import static gradingsystem.ArrayListStorage.Students;
-import static gradingsystem.ArrayListStorage.Teacher;
+import static gradingsystem.ArrayListStorage.*;
 import java.util.*;
 
 public class GradingSystem
 {
-    //These are the data types for the variables
+    //These are the data types for the variables. This is also where variables declared
     ArrayList<String> NewTeacherUser    = new ArrayList<>();
     ArrayList<String> NewTeacherPass    = new ArrayList<>();
     ArrayList<String> NewStudentName    = new ArrayList<>();
@@ -28,32 +25,28 @@ public class GradingSystem
 
     public static void main(String[] args)
     {
-        //The Program Starts Here...
+        //The Program Starts Here. It will direct to ProgramStart() Method "Line 34"
         GradingSystem START=new GradingSystem();
         START.ProgramStart();
     }
 
-    //The system will require you to press the enter button in order to redirect in UserLogin method. "Line 64"
+    //The system will require you to press the enter button in order to redirect in UserLogin method. "Line 58"
     public void ProgramStart()
     {
-        //This new ArrayList is used to call the Arraylist from the other java class
-        ArrayList<String> callObject=new ArrayList<>();
-        Storage(callObject);
-
         //This is the Introduction to the program
         System.out.println("===WELCOME TO STI MEYCAUAYAN===");
         System.out.println("Press \"ENTER\" to proceed...");
 
-        //This is the loop that require you to press the entey key button
+        //This is the loop that require you to press the "enter" key button
         while(true)
         {
             entry = Write.nextLine();
-            //If you press the wrong button this will be shown
+            //If you write and press the button. This will be shown and loop back until only enter key has been press.
             if(!"".equals(entry))
             {
                 System.out.println("Enter key not pressed");
             }
-            //If you press the enter key. It will go to next method. "Line 64"
+            //If you press the enter key. It will go to next method. "Line 58"
             else
             {
                 userlogin(); break;
@@ -61,12 +54,10 @@ public class GradingSystem
         }
     }
 
-    //The user will input the username and the password and this method will determine if the input is admin account or user account
+    //The user will input the username and password. This method will determine if the input is admin account or user account
     public void userlogin()
     {
         //This new ArrayList is used to call the Arraylist from the other java class
-        ArrayList<String> AdminInfo = new ArrayList<>();
-        Admin(AdminInfo);
         ArrayList<String> TeacherInfo = new ArrayList<>();
         Teacher(TeacherInfo);
 
@@ -79,7 +70,7 @@ public class GradingSystem
             System.out.print("Password: ");
             pass = Write.nextLine();
             //If the account is an admin account, the system will redirect to the AdminInput method "Line 997"
-            if (AdminInfo.contains(user) && AdminInfo.contains(pass))
+            if ("admin".equals(user) && "admin123".equals(pass))
             {
                 System.out.println(" ");
                 AdminInput();
@@ -104,15 +95,11 @@ public class GradingSystem
     //If the Login is a Teacher's account. It will direct here and select from the following choices.
     public void TeacherSelection()
     {
-        //This new ArrayList is used to call the Arraylist in the new java class
-        ArrayList<String> info = new ArrayList<>();
-        Storage(info);
-
         //This is the Display of SelectionUser Method
         System.out.println("=====================================");
         System.out.println(">>>WELCOME TEACHER<<<");
         System.out.print("Enter a number from the following: "
-                + "\n[1]Add a Student Grade"
+                + "\n[1]Add Student Grade"
                 + "\n[2]Display Stored Grades"
                 + "\n[3]Go back to Log-In"
                 + "\n[4]Exit the Program"
@@ -154,6 +141,7 @@ public class GradingSystem
         {
             System.out.println("No Stored Grades");
         }
+        //If there's a stored grades. It will print the names of stored grades.
         else
         {
             for (String storedstd : nameOfStd)
@@ -262,8 +250,6 @@ public class GradingSystem
     public void TeacherInputStudentInfo()
     {
         //This new ArrayList is used to call the Arraylist in the new java class
-        ArrayList<String> Display=new ArrayList<>();
-        Storage(Display);
         ArrayList<String> StudentInfo=new ArrayList<>();
         Students(StudentInfo);
 
@@ -948,39 +934,39 @@ public class GradingSystem
 
                 //This is for determining the remark of student based on the average of  terms.
                 if(semGrade >= 97.5 && semGrade <= 100)
-                { System.out.printf("%.2f - "+ Display.get(12), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(12) + "\n", semGrade);
                     storeRemark.add(Display.get(12));
                     break; }
                 else if(semGrade >= 94.50 && semGrade <= 97.49)
-                { System.out.printf("%.2f - "+ Display.get(13), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(13)+ "\n", semGrade);
                     storeRemark.add(Display.get(13));
                     break; }
                 else if(semGrade >= 91.50 && semGrade <= 94.49)
-                { System.out.printf("%.2f - "+ Display.get(14), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(14)+ "\n", semGrade);
                     storeRemark.add(Display.get(14));
                     break; }
                 else if (semGrade >= 88.50 && semGrade <= 91.49)
-                { System.out.printf("%.2f - "+ Display.get(15), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(15)+ "\n", semGrade);
                     storeRemark.add(Display.get(15));
                     break; }
                 else if (semGrade >= 85.50 && semGrade <= 88.49)
-                { System.out.printf("%.2f - "+ Display.get(16), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(16)+ "\n", semGrade);
                     storeRemark.add(Display.get(16));
                     break; }
                 else if(semGrade >= 82.50 && semGrade <= 85.49)
-                { System.out.printf("%.2f - "+ Display.get(17), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(17)+ "\n", semGrade);
                     storeRemark.add(Display.get(17));
                     break; }
                 else if(semGrade >= 79.50 && semGrade <= 82.49)
-                { System.out.printf("%.2f - "+ Display.get(18), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(18)+ "\n", semGrade);
                     storeRemark.add(Display.get(18));
                     break; }
                 else if(semGrade >= 76.50 && semGrade <= 79.49)
-                { System.out.printf("%.2f - "+ Display.get(19), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(19)+ "\n", semGrade);
                     storeRemark.add(Display.get(19));
                     break; }
                 else if(semGrade >= 74.50 && semGrade <= 76.49)
-                { System.out.printf("%.2f - "+ Display.get(20), semGrade);
+                { System.out.printf("%.2f - "+ Display.get(20)+ "\n", semGrade);
                     storeRemark.add(Display.get(20));
                     break; }
                 else
@@ -989,24 +975,20 @@ public class GradingSystem
                     storeRemark.add(Display.get(21));
                     break;
                 }
-                //If the user input the wrong lrn. This will be shown and loop back to try again
             }
+            //If the user input the wrong lrn. This will be shown and loop back to try again
             else
             {
                 System.out.println("Invalid LRN! Try again.");
             }
         }
-        //After the result of Semester Grade. It will go to the next method
+        //After the result of Semester Grade. It will go back to TeacherSelection
         TeacherSelection();
     }
 
     //Here, the system will confirm the code of user input to determine if the user is an admin.
     public void AdminInput()
     {
-        //This new ArrayList is used to call the Arraylist from the other java class
-        ArrayList<String> AdminInfo=new ArrayList<>();
-        Admin(AdminInfo);
-
         //This is the introduction of the Method
         System.out.println("============================");
         System.out.println("You have entered an admin account!");
@@ -1064,7 +1046,7 @@ public class GradingSystem
                 System.out.println("END");
                 break;
             default:
-                System.out.println("Invalid Input");
+                System.out.println("Invalid Input!. Program Ends");
         }
     }
 
