@@ -65,9 +65,9 @@ public class GradingSystem
         int trials = 1;
         while(trials <=3)
         {
-            System.out.print("Log-In\nUsername: ");
+            System.out.print("Log-In\nUsername : ");
             user = Write.nextLine();
-            System.out.print("Password: ");
+            System.out.print("Password : ");
             pass = Write.nextLine();
             //If the account is an admin account, the system will redirect to the AdminInput method "Line 997"
             if ("admin".equals(user) && "admin123".equals(pass))
@@ -104,27 +104,37 @@ public class GradingSystem
                 + "\n[3]Go back to Log-In"
                 + "\n[4]Exit the Program"
                 + "\n: ");
-        select = Write.nextInt();
-
-        //This is the process when the user enter a number from the following
-        switch (select)
+        //Try Catch to prevent Errors when the user input a words instead of numbers
+        try
         {
-            case 1:
-                Write.nextLine();
-                TeacherInputStudentInfo();
-                break;
-            case 2:
-                DisplayStoredGrade();
-                break;
-            case 3:
-                Write.nextLine();
-                userlogin();
-                break;
-            case 4:
-                System.out.println("END");
-                break;
-            default:
-                System.out.println("Invalid Input");
+            select = Write.nextInt();
+            //This is the process when the user enter a number from the following
+            switch (select)
+            {
+                case 1:
+                    Write.nextLine();
+                    TeacherInputStudentInfo();
+                    break;
+                case 2:
+                    DisplayStoredGrade();
+                    break;
+                case 3:
+                    Write.nextLine();
+                    userlogin();
+                    break;
+                case 4:
+                    System.out.println("END");
+                    break;
+                default:
+                    System.out.println("INVALID INPUT");
+                    TeacherSelection();
+            }
+        }
+        catch (InputMismatchException e)
+        {
+            System.out.println("INVALID INPUT");
+            Write.nextLine();
+            TeacherSelection();
         }
     }
 
@@ -153,11 +163,10 @@ public class GradingSystem
         System.out.print("Select Stored Grades from the index: "
                 + "\n[0] Go back to Selection"
                 + "\n: ");
-        std = Write.nextInt();
-
         //Try catch to prevent Exceptional Error.
         try
         {
+            std = Write.nextInt();
             //Call names for selection of student.
             switch (std)
             {
@@ -235,13 +244,15 @@ public class GradingSystem
                     DisplayStoredGrade();
                     break;
                 default:
-                    System.out.println("Invalid Input. Program Ends");
+                    System.out.println("Invalid Input");
+                    DisplayStoredGrade();
                     break;
             }
         }
         catch (Exception e)
         {
             System.out.println("Invalid Input");
+            Write.nextLine();
             DisplayStoredGrade();
         }
     }
@@ -265,13 +276,20 @@ public class GradingSystem
             System.out.print("Student LRN          : ");
             lrnscan=Write.nextLine();
 
-            if (StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan) ||
+            if (nameOfStd.contains(stdscan) && lrnOfStd.contains(lrnscan))
+            {
+                System.out.println("Student has been Graded");
+                TeacherInputStudentInfo();
+                break;
+            }
+            else if(StudentInfo.contains(stdscan) && StudentInfo.contains(lrnscan) ||
                     NewStudentName.contains(stdscan) && NewStudentPass.contains(lrnscan))
             {
                 //If the name and LRN is the same as stored in Array List then it will be stored in another Arraylist and redirect to method Prelim. "Line 182"
                 nameOfStd.add(stdscan);
                 lrnOfStd.add(lrnscan);
-                prelim(); break;
+                prelim();
+                break;
             }
             //If it is wrong input, this will be shown and loop back to try again
             else
@@ -297,7 +315,7 @@ public class GradingSystem
         //This is the input for Quizzes.
         while(true)
         {
-            //This will try to catch non-numeric value and loop back to enter another input.
+            //This will try to catch non-numeric value and loop back to enter another input. Or prevent errors in the program
             try
             {
                 System.out.print(Display.get(0));
@@ -434,7 +452,7 @@ public class GradingSystem
         System.out.printf(Display.get(10),qGrade,schGrade,ptGrade,exGrade);
         System.out.printf("\nPre-Lim              : %.2f",prelimGrade);
 
-        //After the result of grade. It will go to the next method. "Line 344"
+        //After the result of grade. It will go to the next method. "Line 446"
         midterm();
     }
 
@@ -1019,34 +1037,43 @@ public class GradingSystem
         System.out.println("=====================================");
         System.out.println(">>>WELCOME ADMIN<<<");
         System.out.print("Enter a number from the following: "
-                + "\n[1]Add a new Teacher"
-                + "\n[2]Add a new Student"
+                + "\n[1]Add New Teacher"
+                + "\n[2]Add a Student"
                 + "\n[3]Go back to Log-In"
                 + "\n[4]Exit the Program"
                 + "\n: ");
-        select = Write.nextInt();
-
-        //This is the process when the user enter a number from the following
-        switch (select)
+        //Try Catch to prevent Errors when the user input a words instead of numbers
+        try
         {
-            case 1:
-                Write.nextLine();
-                CreateTeacher();
-                break;
-            case 2:
-                Write.nextLine();
-                CreateStudent();
-                break;
-            case 3:
-                Write.nextLine();
-                System.out.println();
-                userlogin();
-                break;
-            case 4:
-                System.out.println("END");
-                break;
-            default:
-                System.out.println("Invalid Input!. Program Ends");
+            select = Write.nextInt();
+            //This is the process when the user enter a number from the following
+            switch (select) {
+                case 1:
+                    Write.nextLine();
+                    CreateTeacher();
+                    break;
+                case 2:
+                    Write.nextLine();
+                    CreateStudent();
+                    break;
+                case 3:
+                    Write.nextLine();
+                    System.out.println();
+                    userlogin();
+                    break;
+                case 4:
+                    System.out.println("END");
+                    break;
+                default:
+                    System.out.println("INVALID INPUT");
+                    AdminSelection();
+            }
+        }
+        catch (InputMismatchException e)
+        {
+            System.out.println("INVALID INPUT");
+            Write.nextLine();
+            AdminSelection();
         }
     }
 
@@ -1054,15 +1081,23 @@ public class GradingSystem
     public void CreateTeacher()
     {
         System.out.println("\nEnter Teacher's Username and Password");
-        System.out.print("Username: ");
+
+        System.out.print("Username : ");
         String newuser = Write.nextLine();
-        NewTeacherUser.add(newuser);
+        String LowerName = newuser.toLowerCase();
+        String FixedName = LowerName.replaceAll("\\s","");
+        NewTeacherUser.add(FixedName);
 
-        System.out.print("Password: ");
+        System.out.print("Password : ");
         String newpass = Write.nextLine();
-        NewTeacherPass.add(newpass);
+        String LowerPass = newpass.toLowerCase();
+        String FixedPass = LowerPass.replaceAll("\\s","");
+        NewTeacherPass.add(FixedPass);
 
-        System.out.println("Teacher Account Created!");
+        System.out.printf("Teacher Account Created!"
+                +"\n=====Teacher Info====="
+                +"\nUsername : %s"
+                +"\nPassword : %s\n",FixedName,FixedPass);
         AdminSelection();
     }
 
@@ -1070,13 +1105,19 @@ public class GradingSystem
     public void CreateStudent()
     {
         System.out.println("\nEnter Student Name and LRN");
-        System.out.print("Student Name: ");
+
+        System.out.print("Student Name : ");
         String newname = Write.nextLine();
         NewStudentName.add(newname);
 
-        System.out.print("Student LRN: ");
+        System.out.print("Student LRN  : ");
         String newID = Write.nextLine();
         NewStudentPass.add(newID);
+
+        System.out.printf("Student Added!"
+                + "\n=====Student Info====="
+                + "\nStudent Name : %s"
+                + "\nStudent LRN  : %s\n", newname, newID);
 
         System.out.println("Student Added!");
         AdminSelection();

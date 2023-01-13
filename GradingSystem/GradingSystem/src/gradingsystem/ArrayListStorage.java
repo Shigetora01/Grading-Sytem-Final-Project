@@ -6,27 +6,27 @@ public class ArrayListStorage
 {
     public static void Storage(ArrayList <String> Storage)
     {
-        //ARRAY For Score Input Display                               //Index No.
-        Storage.add("Quiz 1               : ");                       //0
-        Storage.add("Quiz 2               : ");                       //1
-        Storage.add("Quiz 3               : ");                       //2
-        Storage.add("Homework 1           : ");                       //3
-        Storage.add("Activity 1           : ");                       //4
-        Storage.add("Seatwork 1           : ");                       //5
-        Storage.add("Performance Task     : ");                       //6
-        Storage.add("Exam                 : ");                       //7
+        //ARRAY For Score Input Display                                         //Index No.
+        Storage.add("Quiz 1               : ");                                 //0
+        Storage.add("Quiz 2               : ");                                 //1
+        Storage.add("Quiz 3               : ");                                 //2
+        Storage.add("Homework 1           : ");                                 //3
+        Storage.add("Activity 1           : ");                                 //4
+        Storage.add("Seatwork 1           : ");                                 //5
+        Storage.add("Performance Task     : ");                                 //6
+        Storage.add("Exam                 : ");                                 //7
         Storage.add("\tNumber is not within the Total Score. Try Again");       //8
         Storage.add("\tYou have entered a non numeric field value. Try Again"); //9
 
         //ARRAY for displaying the result of Grade
-        Storage.add("=======Your Grade======="                        //10
+        Storage.add("=======Your Grade======="                          //10
                 +"\nQuiz                 : %.2f"
                 +"\nSchool Activities    : %.2f"
                 +"\nPerformance Task     : %.2f"
                 +"\nExam                 : %.2f");
 
         //ARRAY for Student Information and Grades
-        Storage.add("====================================="          //11
+        Storage.add("====================================="            //11
                 +"\nStudent Name         : %s"
                 +"\nStudent LRN          : %s"
                 +"\nPre-Lim              : %.2f"
@@ -46,7 +46,7 @@ public class ArrayListStorage
         Storage.add("3.00 Fair");                                      //20
         Storage.add("Failed");                                         //21
 
-        Storage.add("=====Student Information====="          //22
+        Storage.add("=====Student Information====="                    //22
                 +"\nStudent Name         : %s"
                 +"\nStudent LRN          : %s"
                 +"\nPre-Lim              : %.2f"
@@ -68,7 +68,7 @@ public class ArrayListStorage
     public static void Teacher(ArrayList <String> Teacher)
     {
         //Arraylist For Teacher's Information
-        Teacher.add("Paul Arevalo");            Teacher.add("paul123"); //0-1
-        Teacher.add("Rose Ann Tecson");         Teacher.add("rose123"); //2-3
+        Teacher.add("paularevalo");            Teacher.add("paul123"); //0-1
+        Teacher.add("rosetecson");             Teacher.add("rose123"); //2-3
     }
 }
