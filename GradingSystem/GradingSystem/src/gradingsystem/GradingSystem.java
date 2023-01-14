@@ -1118,8 +1118,6 @@ public class GradingSystem
                 + "\n=====Student Info====="
                 + "\nStudent Name : %s"
                 + "\nStudent LRN  : %s\n", newname, newID);
-
-        System.out.println("Student Added!");
         AdminSelection();
     }
 }
